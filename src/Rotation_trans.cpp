@@ -8,7 +8,7 @@
 #include "Rotation_trans.h"
 
 
-cv::Mat getRx(const double theta_x)
+cv::Mat getRx(double theta_x)
 {
     double pi = 3.1415926535898;
     double thetax = theta_x*pi/180.0;
@@ -27,7 +27,7 @@ cv::Mat getRx(const double theta_x)
     return Rx;
 }
 
-cv::Mat getRy(const double theta_y)
+cv::Mat getRy(double theta_y)
 {
     double pi = 3.1415926535898;
     double thetay = theta_y*pi/180.0;
@@ -46,7 +46,7 @@ cv::Mat getRy(const double theta_y)
     return Ry;
 }
 
-cv::Mat getRz(const double theta_z)
+cv::Mat getRz(double theta_z)
 {
     double pi = 3.1415926535898;
     double thetaz = theta_z*pi/180.0;
@@ -64,29 +64,26 @@ cv::Mat getRz(const double theta_z)
     return Rz;
 }
 
-cv::Mat getRxyz(const double thetax, const double thetay, const double thetaz)
+cv::Mat getRxyz(double thetax, double thetay, double thetaz)
 {
-
-        cv::Mat Rxyz;
-        Rxyz = getRx(thetax) * getRy(thetay) * getRz(thetaz);
-        return Rxyz;
+    cv::Mat Rxyz;
+    Rxyz = getRx(thetax) * getRy(thetay) * getRz(thetaz);
+    return Rxyz;
 }
 
 
-cv::Mat getRzxy(const double thetax, const double thetay, const double thetaz)
+cv::Mat getRzxy(double thetax, double thetay, double thetaz)
 {
-
-        cv::Mat Rzyx;
-        Rzyx =  getRz(thetaz) * getRx(thetay) * getRy(thetax) ;
-        return Rzyx;
+    cv::Mat Rzyx;
+    Rzyx =  getRz(thetaz) * getRx(thetay) * getRy(thetax) ;
+    return Rzyx;
 }
 
-cv::Mat getRyxz(const double thetax, const double thetay, const double thetaz)
+cv::Mat getRyxz(double thetax, double thetay, double thetaz)
 {
-
-        cv::Mat Ryxz;
-        Ryxz =  getRy(thetay) * getRx(thetax) * getRz(thetaz);
-        return Ryxz;
+    cv::Mat Ryxz;
+    Ryxz =  getRy(thetay) * getRx(thetax) * getRz(thetaz);
+    return Ryxz;
 }
 
 void getQuaternion(cv::Mat Ros, cv::Mat &Qs)
@@ -161,7 +158,7 @@ void getQuaternion(cv::Mat Ros, cv::Mat &Qs)
 }
 
 
-void get_Q_Rotation(const std::vector<double> Quaternion, cv::Mat &rt_mat)
+void get_Q_Rotation(std::vector<double> Quaternion, cv::Mat &rt_mat)
 {
 
     rt_mat.at<double>(0, 0) = 1 - 2 * (Quaternion[2] * Quaternion[2]) - 2 * (Quaternion[3] * Quaternion[3]);

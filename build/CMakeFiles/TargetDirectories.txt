@@ -1,0 +1,3 @@
+/cvg_5/QT_code/everything_convert/build/CMakeFiles/rebuild_cache.dir
+/cvg_5/QT_code/everything_convert/build/CMakeFiles/edit_cache.dir
+/cvg_5/QT_code/everything_convert/build/CMakeFiles/main.dir
